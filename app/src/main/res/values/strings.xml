@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="deschide_activitate">Deschide activitate</string>
+    <string name="intoarce_rezultat">Intoarce Rezultat</string>
 </resources>

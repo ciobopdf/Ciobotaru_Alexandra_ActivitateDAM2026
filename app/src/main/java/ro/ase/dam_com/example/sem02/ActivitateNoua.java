@@ -3,8 +3,10 @@ package ro.ase.dam_com.example.sem02;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -23,8 +25,27 @@ public class ActivitateNoua extends AppCompatActivity {
             return insets;
         });
     }
-    void deschideActivitate(View view){
-    Intent intent=new Intent(getApplicationContext(), ActivitateTrei.class);
-    startActivity(intent);
+   public void deschideActivitate(View view){
+    Intent it=new Intent(getApplicationContext(), ActivitateRezultat.class);
+
+    Bundle bundle=new Bundle();
+    bundle.putInt("numar1",6);
+    bundle.putInt("numar2",9);
+    bundle.putString("mesaj","Mesaj transmis de prima activitate");
+    it.putExtras(bundle);
+
+    startActivityForResult(it,37);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==37){
+            if(resultCode==RESULT_OK){
+                String mesaj=data.getStringExtra("name");
+                int suma=data.getIntExtra("suma",0);
+                Toast.makeText(this, mesaj+" "+suma, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
