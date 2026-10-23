@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TaskSeminar4</string>
+    <string name="adaugare_apartament">Adaugare Apartament</string>
+    <string name="adresa">Adresa:</string>
+    <string name="ex_calea_dorobanti_15">Ex: Calea Dorobanti 15</string>
+    <string name="numar_camere">Numar Camere:</string>
+    <string name="rating_stare_imobil">Rating stare imobil:</string>
+    <string name="disponibil_imediat">Disponibil imediat</string>
+    <string name="tip_anunt">Tip anunt:</string>
+    <string name="proprietar">Proprietar</string>
+    <string name="agentie">Agentie</string>
+    <string name="complet_mobilat">Complet mobilat</string>
+    <string name="trimite_datele">Trimite Datele</string>
+</resources>
