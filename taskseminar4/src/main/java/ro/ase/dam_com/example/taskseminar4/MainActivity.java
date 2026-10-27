@@ -14,10 +14,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvRezultat;
     private ActivityResultLauncher<Intent> launcher;
+
+    // 1. Lista de obiecte în memoria MainActivity
+    private ArrayList<Apartament> listaApartamente = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +44,14 @@ public class MainActivity extends AppCompatActivity {
                         Bundle bundle = result.getData().getExtras();
                         if (bundle != null && bundle.containsKey("OBIECT_APARTAMENT")) {
                             Apartament ap = (Apartament) bundle.getSerializable("OBIECT_APARTAMENT");
+
                             if (ap != null) {
-                                tvRezultat.setText(ap.toString());
-                                Toast.makeText(this, "Adăugat cu succes:\n" + ap.toString(), Toast.LENGTH_LONG).show();
+                                // Cerința 1: Adăugare în ArrayList
+                                listaApartamente.add(ap);
+
+                                tvRezultat.setText("Ultimul adăugat:\n" + ap.toString() +
+                                        "\n\nTotal în listă: " + listaApartamente.size());
+                                Toast.makeText(this, "Salvat în listă!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
@@ -57,5 +67,17 @@ public class MainActivity extends AppCompatActivity {
     public void deschideAdaugareAI(View view) {
         Intent it = new Intent(this, AddApartamentAiActivity.class);
         launcher.launch(it);
+    }
+
+
+    public void deschideListaApartamente(View view) {
+        if (listaApartamente.isEmpty()) {
+            Toast.makeText(this, "Lista este goală! Adăugați mai întâi un apartament.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Intent it = new Intent(this, ListaApartamenteActivity.class);
+        it.putExtra(ListaApartamenteActivity.CHEIE_LISTA, listaApartamente);
+        startActivity(it);
     }
 }

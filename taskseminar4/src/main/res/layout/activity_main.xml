@@ -29,6 +29,13 @@
         android:onClick="deschideAdaugareAI"
         android:text="2. Adaugă Apartament (Design AI)" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="deschideListaApartamente"
+        android:text="3. Vezi Lista Apartamente (ListView)" />
+
     <TextView
         android:id="@+id/TV_rezultat"
         android:layout_width="match_parent"

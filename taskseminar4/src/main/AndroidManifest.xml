@@ -19,12 +19,16 @@
             </intent-filter>
         </activity>
 
-        <!-- Activitățile adăugate pentru laborator -->
+
         <activity
             android:name=".AddApartamentActivity"
             android:exported="false" />
         <activity
             android:name=".AddApartamentAiActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ListaApartamenteActivity"
             android:exported="false" />
 
     </application>
